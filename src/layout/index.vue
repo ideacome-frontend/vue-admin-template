@@ -56,14 +56,17 @@ export default {
 
   .app-wrapper {
     @include clearfix;
+
     position: relative;
     height: 100%;
     width: 100%;
-    &.mobile.openSidebar{
+
+    &.mobile.openSidebar {
       position: fixed;
       top: 0;
     }
   }
+
   .drawer-bg {
     background: #000;
     opacity: 0.3;
@@ -84,7 +87,7 @@ export default {
   }
 
   .hideSidebar .fixed-header {
-    width: calc(100% - 54px)
+    width: calc(100% - 54px);
   }
 
   .mobile .fixed-header {

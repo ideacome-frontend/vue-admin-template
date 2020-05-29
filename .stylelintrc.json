@@ -1,0 +1,23 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "indentation": [
+      2,
+      {
+        "baseIndentLevel": 1
+      }
+    ],
+    "at-rule-no-unknown": null,
+    "property-no-unknown": null,
+    "property-case": null,
+    "no-empty-source": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global", "export", "import", "local"]
+      }
+    ],
+    "no-descending-specificity": null
+  },
+  "ignoreFiles": ["node_modules/**", "dist/**", "src/icons/**"]
+}

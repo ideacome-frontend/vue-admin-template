@@ -53,6 +53,20 @@ npm run lint -- --fix
 ```
 
 
+## request
+如果后端接口支持跨域：
+可以直接在 .env.development 中配置后端接口地址
+
+如果后端接口不支持跨域
+本地开发可在 vue.config.js 的 devServer => proxy中配置后端接口地址
+本地请求的时候会把http://127.0.0.1/dev-api/xxx 转发到对应的接口地址
+
+
+## token
+如果前端域名和接口域名相同，则可以使用cookie传递token，这也是默认的传递方式
+如果域名不同，可以在 request.js 中的请求头中主动设置token参数
+
+
 ## Extra
 
 If you want router permission && generate menu by user roles , you can use this branch [permission-control](https://github.com/PanJiaChen/vue-admin-template/tree/permission-control)

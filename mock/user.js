@@ -35,13 +35,13 @@ export default [
       // mock error
       if (!token) {
         return {
-          code: 60204,
+          code: 99999,
           message: 'Account and password are incorrect.'
         }
       }
 
       return {
-        code: 20000,
+        code: 10000,
         data: token
       }
     }
@@ -64,7 +64,7 @@ export default [
       }
 
       return {
-        code: 20000,
+        code: 10000,
         data: info
       }
     }
@@ -76,7 +76,7 @@ export default [
     type: 'post',
     response: _ => {
       return {
-        code: 20000,
+        code: 10000,
         data: 'success'
       }
     }
