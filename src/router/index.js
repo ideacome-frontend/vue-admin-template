@@ -45,27 +45,27 @@ export const constantRoutes = [
 
   {
     path: '/',
-    redirect: '/example'
+    redirect: '/table'
   },
 
   {
-    path: '/example',
+    path: '/table',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'operation' },
+    redirect: '/table/query',
+    name: '表格查询',
+    meta: { title: '表格查询', icon: 'operation' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
+        path: 'query',
+        name: 'Query',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'device' }
+        meta: { title: '表单与表格' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'information' }
+        meta: { title: 'Tree' }
       }
     ]
   },

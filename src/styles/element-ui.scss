@@ -46,3 +46,33 @@
 .el-range-separator {
   box-sizing: content-box;
 }
+
+// el-select
+.el-date-editor.el-input,
+.el-date-editor.el-range-editor.el-input__inner.el-date-editor--daterange,
+.el-select {
+  width: 100%;
+
+  .el-range-separator {
+    width: unset;
+  }
+}
+
+.el-input.header__input {
+  flex: 1;
+
+  .el-input__inner {
+    border-radius: 3px 0 0 3px;
+  }
+}
+
+.el-table .cell {
+  text-align: center;
+}
+
+.el-table__header {
+  th,
+  tr {
+    background-color: #ebecf0;
+  }
+}

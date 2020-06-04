@@ -1,10 +1,67 @@
 <template>
   <div class="app-container">
+    <!-- 搜索start -->
+    <Search is-operate="true" @search="doQuery" @clear="clearQuery">
+      <search-item>
+        <template slot="label">
+          设备ID
+        </template>
+        <template slot="content">
+          <el-input v-model.trim="query.deviceID" placeholder="请输入设备ID" clearable />
+        </template>
+      </search-item>
+      <search-item>
+        <template slot="label">
+          厂商
+        </template>
+        <template slot="content">
+          <el-select v-model="query.vendorId" placeholder="请选择">
+            <el-option
+              v-for="item in vendorList"
+              :key="item.key"
+              :label="item.value"
+              :value="item.key"
+            />
+          </el-select>
+        </template>
+      </search-item>
+      <search-item>
+        <template slot="label">
+          车牌号
+        </template>
+        <template slot="content">
+          <el-input v-model.trim="query.plateNo" placeholder="请输入车牌号" clearable />
+        </template>
+      </search-item>
+      <search-item>
+        <template slot="label">
+          入库时间
+        </template>
+        <template slot="content">
+          <el-date-picker
+            v-model="query.storeTime"
+            class="picker"
+            type="datetime"
+            value-format="yyyy-MM-dd HH:mm:ss"
+          />
+        </template>
+      </search-item>
+      <template slot="footer">
+        <el-button type="primary" size="medium" @click="addDevice">
+          添加设备
+        </el-button>
+        <div class="pull-right">
+          <el-button type="text" icon="el-icon-download" @click="handleDownload(scope)">
+            <i class="icon icon-xiazai" />按搜索结果下载到本地
+          </el-button>
+        </div>
+      </template>
+    </Search>
+    <!-- 搜索end -->
+
     <el-table
       v-loading="listLoading"
       :data="list"
-      element-loading-text="Loading"
-      border
       fit
       highlight-current-row
     >
@@ -40,6 +97,16 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <!-- 分页start -->
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="pagination.page"
+      :limit.sync="pagination.limit"
+      @pagination="fetchData"
+    />
+    <!-- 分页end -->
   </div>
 </template>
 
@@ -59,6 +126,27 @@ export default {
   },
   data() {
     return {
+      vendorList: [
+        {
+          value: '某宝',
+          key: 1
+        },
+        {
+          value: '某东',
+          key: 2
+        }
+      ],
+      query: {
+        deviceID: '',
+        vendorId: '',
+        plateNo: '',
+        storeTime: ''
+      },
+      total: 0,
+      pagination: {
+        page: 1,
+        limit: 20
+      },
       list: null,
       listLoading: true
     }
@@ -71,8 +159,23 @@ export default {
       this.listLoading = true
       getList().then(response => {
         this.list = response.data.items
+        this.total = response.data.total
         this.listLoading = false
       })
+    },
+    doQuery() {
+      console.log('query')
+    },
+    clearQuery() {
+      Object.keys(this.query).map(key => {
+        this.query[key] = ''
+      })
+    },
+    addDevice() {
+      console.log('do something')
+    },
+    handleDownload() {
+      console.log('do load request')
     }
   }
 }

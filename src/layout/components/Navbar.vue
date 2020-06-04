@@ -15,7 +15,7 @@
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
           <el-dropdown-item @click.native="logout">
-            <span style="display: block;">Log Out</span>
+            <span style="display: block;">退出登录</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>

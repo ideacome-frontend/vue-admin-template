@@ -3,13 +3,18 @@
 @import './transition.scss';
 @import './element-ui.scss';
 @import './sidebar.scss';
+@import './space.scss'; // margin padding width height border-radius等
+@import './font.scss';
+@import './flex.scss';   // 布局样式 左右布局、盒模型等
+@import './skin.scss';  // 背景色、字体颜色
+@import './border.scss';// 圆角 边框
 
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-family: 'PingFang SC', "Helvetica Neue", 'Hiragino Sans GB', 'Microsoft YaHei', Helvetica, Arial, sans-serif;
 }
 
 label {
@@ -61,5 +66,36 @@ div:focus {
 
 // main-container global css
 .app-container {
-  padding: 20px;
+  padding: 10px;
+  background: $gray;
+}
+
+.pull-right,
+.float-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+//layout
+.m-auto {
+  margin: auto;
 }

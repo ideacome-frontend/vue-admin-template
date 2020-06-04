@@ -67,13 +67,6 @@ npm run lint -- --fix
 如果域名不同，可以在 request.js 中的请求头中主动设置token参数
 
 
-## Extra
-
-If you want router permission && generate menu by user roles , you can use this branch [permission-control](https://github.com/PanJiaChen/vue-admin-template/tree/permission-control)
-
-For `typescript` version, you can use [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template) (Credits: [@Armour](https://github.com/Armour))
-
-
 ## Browsers support
 
 Modern browsers and Internet Explorer 10+.
